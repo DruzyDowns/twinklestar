@@ -7,30 +7,36 @@ const cors = require('cors');
 const graphqlHTTP = require('express-graphql');
 const gql = require('graphql-tag');
 const { buildASTSchema } = require('graphql');
-
-const POSTS = [
-    { author: "John Doe", body: "Hello world" },
-    { author: "Jane Doe", body: "Hi, planet!" },
-];
+const db = require("./queries");
+const PLAYERS = require("./players");
 
 const schema = buildASTSchema(gql`
   type Query {
-    posts: [Post]
-    post(id: ID!): Post
+    players: [Player]
+    player(id: ID!): Player
   }
 
-  type Post {
+  type Player {
     id: ID
-    author: String
-    body: String
+    player_name: String
+    character_name: String
+    class: String
+    life: Int
+    str: Int
+    end: Int
+    agi: Int
+    cha: Int
+    aur: Int
+    tho: Int
+    avatar: String
   }
 `);
 
-const mapPost = (post, id) => post && ({ id, ...post });
+const mapPlayer = (player, id) => player && ({ id, ...player });
 
 const root = {
-    posts: () => POSTS.map(mapPost),
-    post: ({ id }) => mapPost(POSTS[id], id),
+  players: () => PLAYERS.map(mapPlayer),
+    player: ({ id }) => mapPlayer(PLAYERS[id], id),
 };
 
 const app = express();
@@ -40,13 +46,6 @@ app.use('/graphql', graphqlHTTP({
     rootValue: root,
     graphiql: true,
 }));
-
-app.get("/players", db.getPlayers);
-app.get("/players/:id", db.getPlayerById);
-app.post("/players", db.createPlayer);
-app.post("/characters", db.createCharacter);
-app.put("/players/:id", db.updatePlayer);
-app.delete("/players/:id", db.deletePlayer);
 
 const port = process.env.PORT || 4200
 app.listen(port);
