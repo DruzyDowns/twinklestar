@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 
 const Agi = () =>
-    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="89.4px"
-        height="53.4px" viewBox="0 0 89.4 53.4">
+    <div>
+        <svg className="svg-fill" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="40px"
+            height="auto" viewBox="0 0 89.4 53.4">
         <defs>
         </defs>
         <g>
@@ -13,7 +14,7 @@ const Agi = () =>
             <rect width="89.4" height="6.4" />
         </g>
     </svg>
-
+   </div>
     ;
 
 export default Agi;

@@ -1,1 +1,67 @@
-.st0{fill:#000;}
+@font-face {
+  src: url(./fonts/StepsMono.otf);
+  font-family: steps;
+  font-weight: 400;
+}
+@font-face {
+  src: url(./fonts/MisterPixelRegular.otf);
+  font-family: mister;
+  font-weight: 400;
+}
+@font-face {
+  src: url(./fonts/MisterPixelTools.otf);
+  font-family: mister-tools;
+  font-weight: 400;
+}
+
+:root {
+  --main-bg: #000;
+  --fcolor: #fd8f00;
+  --fcolor2: #14fdc0;
+  --font-stats: "mister", monospace;
+  --font-hl: "steps", sans-serif;
+  --main-border: #fd8f00;
+  --hover: #14fec0;
+  --svg-fill: #fd8f00;
+}
+
+body {
+  background-color: var(--main-bg);
+  color: var(--fcolor);
+}
+
+.steps {
+    font-family: "steps", monospace;
+}
+.mister {
+    font-family: "mister", monospace;
+}
+
+.svg-fill {
+    fill: var(--svg-fill);
+}
+
+.border-main {
+    border-color: var(--main-border);
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    grid-column-gap: 2em;
+    grid-row-gap: 2em;
+}
+
+.player-card {
+  min-height: 30vh;
+}
+
+.twinklestar-card {
+  grid-column: span 1;
+}
+
+.twinklegram-card {
+  grid-column: span 1;
+}
+
