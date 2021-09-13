@@ -84,7 +84,7 @@ export default () => (
                 <Twinklestar />
                 <Twinklegram
                     strings={[
-                        `Rainbow Company... MOUNT UP!!<br>Volume 11 nerds, it's time to ride<br>It's dangerous to go alone, take this, bitch.<br>Drugs... We need more DRUGS!`,
+                        `Rainbow Company... MOUNT UP!!`,
                         
                     ]}
                 />
